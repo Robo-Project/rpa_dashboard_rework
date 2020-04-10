@@ -2,7 +2,7 @@
 - name: Generate ssh-certificates
   shell: sh create_certs.sh 
   args:
-    chdir: "certs"
+    chdir: certs
     creates: robo.crt
 - name: Create postgres volume
   docker_volume:
