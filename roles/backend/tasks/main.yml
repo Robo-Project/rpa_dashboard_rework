@@ -1,0 +1,22 @@
+---
+- name: Create backend env-file
+  template:
+    src: .env
+    dest: backend.env
+- name: Create jenkin-api-token
+  file: 
+    path: jenkins-api-token
+    state: touch
+- name: Start backend
+  docker_container:
+    name: backend 
+    image: roboteam/jenkins_service
+    privileged: yes
+    pull: yes
+    network_mode: host
+    env_file: backend.env
+    volumes:
+      - ./jenkins-api-token:/jenkins-api-token
+      - ./certs:/certs
+    ports:
+      - 4000:4000

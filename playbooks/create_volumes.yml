@@ -1,0 +1,13 @@
+---
+- name: Create postgres database volume
+  docker_volume:
+    name: pg_database
+- name: Create jenkins data volume
+  docker_volume:
+    name: jenkins_data
+- name: Create jenkins docker certificate volume
+  docker_volume:
+    name: jenkind_data
+- name: Create volume for grafana data
+  docker_volume:
+    name: grafana-storage

@@ -1,0 +1,9 @@
+---
+- hosts: all
+  roles:
+  - role: common
+  - role: postgres
+  - role: backend
+  - role: jenkins
+  - role: grafana
+  - role: nginx

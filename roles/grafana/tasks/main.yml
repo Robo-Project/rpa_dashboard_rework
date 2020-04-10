@@ -1,0 +1,14 @@
+---
+- name: Start grafana
+  docker_container:
+    name: grafana
+    image: roboteam/rpa_dashboard_grafana
+    pull: yes
+    network_mode: host
+    restart_policy: unless-stopped 
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    env_file: backend.env
+    ports:
+      - 3000:3000
+      

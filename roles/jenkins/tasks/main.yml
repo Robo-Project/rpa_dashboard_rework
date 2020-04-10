@@ -1,0 +1,32 @@
+---
+- name: Start docker in docker
+  docker_container:
+    name: jenkins-docker
+    image: docker:19-dind
+    privileged: yes
+    network_mode: host
+    volumes:
+      - jenkins-docker-certs:/certs/client
+      - jenkins-data:/var/jenkins_home
+    env:
+      DOCKER_TLS_CERTDIR: /certs
+    ports:
+      - 2376:2376
+- name: Start jenkins
+  docker_container:
+    name: jenkins
+    image: roboteam/rpa_dashboard_jenkins
+    pull: yes
+    network_mode: host
+    restart_policy: unless-stopped
+    volumes:
+      - jenkins-data:/var/jenkins_home 
+      - jenkins-docker-certs:/certs/client:ro
+    env:
+      DOCKER_HOST: tcp://localhost:2376
+      DOCKER_CERT_PATH: /certs/client
+      DOCKER_TLS_VERIFY: "1"
+    env_file: postgres.env
+    ports:
+      - 8080:8080
+      - 50000:50000

@@ -1,0 +1,4 @@
+---
+jenkins_url: jenkins.localhost
+grafana_url: localhost
+backend_url: backend.localhost
