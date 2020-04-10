@@ -1,0 +1,52 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+  - name: Delete grafana
+    docker_container:
+      name: grafana
+      state: absent
+      keep_volumes: no
+  - name: Delete backend
+    docker_container:
+      name: backend
+      state: absent
+      keep_volumes: no
+  - name: Delete jenkins
+    docker_container:
+      name: jenkins
+      state: absent
+      keep_volumes: no
+  - name: Delete docker in docker
+    docker_container:
+      name: jenkins-docker
+      state: absent
+      keep_volumes: no
+  - name: Delete postgres
+    docker_container:
+      name: postgres
+      state: absent
+      keep_volumes: no
+  - name: Delete nginx
+    docker_container:
+      name: nginx
+      state: absent
+      keep_volumes: no
+  - name: Delete backend.env
+    file:
+      path: backend.env
+      state: absent
+  - name: Delete postgres.env
+    file:
+      path: postgres.env
+      state: absent
+  - name: Delete jenkins-api-token
+    file:
+      path: jenkins-api-token
+      state: absent
+  - name: Delete nginx.conf
+    file:
+      path: nginx.conf
+      state: absent
+  
+ 
