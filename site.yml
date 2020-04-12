@@ -1,5 +1,10 @@
 ---
 - hosts: all
+  vars:
+    pg_db: postgres
+    pg_user: postgres
+    pg_pswd: password123
+    backend_token: token123
   gather_facts: no
   roles:
   - role: common
@@ -8,3 +13,11 @@
   - role: jenkins
   - role: grafana
   - role: nginx
+  tasks:
+  - name: Read initial admin password
+    shell:
+      cmd: docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+    register: jenkins_password
+  - name: Print initial admin password
+    debug:
+      var: jenkins_password.stdout

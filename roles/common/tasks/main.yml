@@ -4,6 +4,11 @@
   args:
     chdir: certs
     creates: robo.crt
+- name: Create env-file for docker containers
+  template:
+    src: .env
+    dest: docker.env
+    mode: '0400'
 - name: Create postgres volume
   docker_volume:
     name: database

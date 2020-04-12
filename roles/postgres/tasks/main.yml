@@ -1,9 +1,4 @@
 ---
-- name: Create env-file for postgres
-  template:
-    src: .env
-    dest: postgres.env
-    mode: '0400'
 - name: Start postgres
   docker_container:
     name: postgres
@@ -14,7 +9,7 @@
     env:
       TZ: Europe/Helsinki
       PGTZ: Europe/Helsinki
-    env_file: postgres.env
+    env_file: docker.env
     volumes:
       - database:/var/lib/postgresql/data:z
     ports:

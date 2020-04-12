@@ -3,3 +3,4 @@ postgres.env
 certs/robo.*
 backend.env
 nginx.conf
+docker.env

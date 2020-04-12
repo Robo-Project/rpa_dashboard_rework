@@ -1,4 +1,0 @@
----
-  pg_user: postgres
-  pg_pswd: password123
-  pg_db: pg_db
