@@ -13,7 +13,7 @@ RPA dashboard rework
 3. Navigate to localhost:8080 and follow instructions
 4. Login to jenkins and create an api token
 5. Open `jenkins-api-token` -file and type `[YOUR_USERNAME]:[YOUR_API_TOKEN]` without brackets
-6. Add an empty line at the end of the file mpty new line at 
+6. Add an empty line at the end of the file
 7. Run `docker restart backend` on host machine
 8. Navigate to localhost and login with `admin` and `admin`
 9. Add database credentials to postgres datasource.
