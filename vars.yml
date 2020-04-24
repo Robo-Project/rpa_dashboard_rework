@@ -1,0 +1,5 @@
+---
+pg_db: postgres
+pg_user: postgres
+pg_pswd: password123
+backend_token: token123
