@@ -1,28 +1,8 @@
 ---
 - hosts: all
   gather_facts: no
+  vars_files:
+    - ../vars.yml
   tasks:
-  - name: Shutdown grafana
-    docker_container:
-      name: grafana
-      state: absent
-  - name: Shutdown backend
-    docker_container:
-      name: backend
-      state: absent
-  - name: Shutdown jenkins
-    docker_container:
-      name: jenkins
-      state: absent
-  - name: Shutdown docker in docker
-    docker_container:
-      name: jenkins-docker
-      state: absent
-  - name: Shutdown postgres
-    docker_container:
-      name: postgres
-      state: absent
-  - name: Shutdown nginx
-    docker_container:
-      name: nginx
-      state: absent
+  - name: Delete all containers
+    import_tasks: tasklists/delete_containers.yml
