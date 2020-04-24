@@ -1,7 +1,7 @@
 ---
 - name: Start docker in docker
   docker_container:
-    name: jenkins-docker
+    name: "{{ dind_cont_name }}"
     image: docker:19-dind
     privileged: yes
     network_mode: host
@@ -14,14 +14,14 @@
       - 2376:2376
 - name: Start jenkins
   docker_container:
-    name: jenkins
+    name: "{{ jenkins_cont_name }}"
     image: roboteam/rpa_dashboard_jenkins
     pull: yes
     network_mode: host
     restart_policy: unless-stopped
     volumes:
-      - jenkins-data:/var/jenkins_home 
-      - jenkins-docker-certs:/certs/client:ro
+      - "{{ jenkins_volume_name }}:/var/jenkins_home"
+      - "{{ certs_volume_name }}:/certs/client:ro"
     env:
       DOCKER_HOST: tcp://localhost:2376
       DOCKER_CERT_PATH: /certs/client

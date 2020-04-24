@@ -5,7 +5,7 @@
     dest: nginx.conf
 - name: Start nginx
   docker_container:
-    name: nginx
+    name: "{{ nginx_cont_name }}"
     image: nginx:1.17.9-alpine
     privileged: yes
     network_mode: host

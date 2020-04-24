@@ -1,7 +1,7 @@
 ---
 - name: Start postgres
   docker_container:
-    name: postgres
+    name: "{{ postgres_cont_name }}"
     image: postgres:12.1-alpine
     privileged: yes
     network_mode: host
@@ -11,6 +11,6 @@
       PGTZ: Europe/Helsinki
     env_file: docker.env
     volumes:
-      - database:/var/lib/postgresql/data:z
+      - "{{ postgres_volume_name }}:/var/lib/postgresql/data:z"
     ports:
       - 5432:5432
