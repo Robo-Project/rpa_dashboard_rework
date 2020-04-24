@@ -4,7 +4,8 @@ RPA dashboard rework
 ## Requirements
 
 * Ansible installation
-* Docker installation on host machine
+* docker-py installation on host machine
+  * run `pip install docker-py`
   
 ## Local deployment
 
@@ -31,6 +32,6 @@ RPA dashboard rework
 
 Kills and removes all containers. Run site.yml to restart app.
 
-#### nuke.yml (WIP)
+#### nuke.yml
 
 Kill and removes all containers and volumes. Deletes all files used by the application. Run only if you want to reset.
