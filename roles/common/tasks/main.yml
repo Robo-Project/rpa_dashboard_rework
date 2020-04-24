@@ -9,15 +9,3 @@
     src: .env
     dest: docker.env
     mode: '0400'
-- name: Create postgres volume
-  docker_volume:
-    name: database
-- name: Create jenkins volume
-  docker_volume:
-    name: jenkins-data
-- name: Create jenkins certificate volume
-  docker_volume:
-    name: jenkins-docker-certs
-- name: Create grafana volume
-  docker_volume:
-    name: grafana-storage
