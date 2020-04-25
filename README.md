@@ -9,6 +9,12 @@ RPA dashboard rework
   
 ## Local deployment
 
+Detailed instruction on how to retrieve jenkins-api-token and setup grafana are here:
+
+https://github.com/Robo-Project/rpa_dashboard/blob/master/documentation/installation.md#configuration
+
+Ignore parts about docker-compose
+
 1. Run `ansible-playbook site.yml -i hosts.yml -c local -l localhost`
 2. If reading initial admin password fails run playbook again
 3. Navigate to localhost:8080 and follow instructions
@@ -21,9 +27,10 @@ RPA dashboard rework
 10. By default: `database: postgres` `username: postgres` `password: password123`
 11. Save and enjoy
 
-### Notes
+### Known problems
 
 * Doesn't seem to work locally on firefox. Use chrome-based browser instead
+* There are issues with https
 * Project seems to have a mind of its own and may or may not work depending upon the will of the cosmos
 
 ## Playbooks
